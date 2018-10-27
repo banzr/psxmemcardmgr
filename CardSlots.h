@@ -1,19 +1,19 @@
+#ifndef CARDSLOTS_H
+#define CARDSLOTS_H
+
 #include <qwidget.h>
 #include <qlabel.h>
 #include <qradiobutton.h>
 #include <qpixmap.h>
 #include <qframe.h>
-#include <q3listview.h>
-
-#ifndef CARDSLOTS_H
-#define CARDSLOTS_H
+#include <qlistview.h>
 
 class CardSlots : public QFrame
 {
 	Q_OBJECT
 
 public:
-	CardSlots(QWidget *parent=0, const char *name=0);
+    CardSlots(QWidget *parent);
 	int get_selected_slot();
 public slots:
 	void changeIcon(int num, QPixmap pixmap);
@@ -25,7 +25,7 @@ public slots:
 	void clear(int num);
 
 private:
-	Q3ListViewItem *card_slots[15];
+    QListViewItem *card_slots[15];
 
 	QLabel *lblIcons[15];
 	QRadioButton *radioBtn[15];
@@ -33,7 +33,7 @@ private:
 	QLabel *lblPcode[15];
 	QLabel *lblGameID[15];
 	QPixmap pmEmptyIcon;
-	Q3ListView *listview;
+    QListView *listview;
 };
 
 #endif    // CARDSLOTS_H

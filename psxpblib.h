@@ -30,7 +30,13 @@
 
 #ifdef _PSXPB_LINUX_ 
 	#include <string.h> 
- 	#include <sys/io.h>
+
+    #ifdef __APPLE__
+            #include <sys/uio.h>
+    #else
+            #include <sys/io.h>
+    #endif
+
 	#include <unistd.h>
  	#define	psx_outportb(P, B) outb(B, P)
  	#define psx_inportb(P) inb(P)

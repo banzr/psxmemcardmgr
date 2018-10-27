@@ -1,12 +1,12 @@
 /* Cette classe a pour but de gerer l'affichage du contenu de la carte
 memoire, soit les icones, les descriptions et le pays d'origine. */
-#include <qpixmap.h>
+#include <QPixmap>
 #include <qlayout.h>
 #include <qframe.h>
-#include <q3listview.h>
+#include <qlistview.h>
 #include "CardSlots.h"
 
-CardSlots::CardSlots( QWidget *parent, const char *name ) : QFrame(parent,name)
+CardSlots::CardSlots( QWidget *parent) : QFrame(parent)
 {
 	// create a 3 X 15 grid
 	// Parent, row, cols, border, space, name
@@ -14,7 +14,7 @@ CardSlots::CardSlots( QWidget *parent, const char *name ) : QFrame(parent,name)
 	QVBoxLayout *box = new QVBoxLayout(this, 0,0,"layout");
 	this->setFrameStyle(QFrame::Panel | QFrame::Sunken);
 
-	listview = new Q3ListView(this,"listview");
+    listview = new QListView(this,"listview");
 	listview->addColumn("Blk");
 	listview->addColumn("Ico");
 	listview->addColumn("Title",-1);
@@ -27,7 +27,7 @@ CardSlots::CardSlots( QWidget *parent, const char *name ) : QFrame(parent,name)
 
 	for (int i=14; i>=0; i--)
 	{
-    	card_slots[i] = new Q3ListViewItem( listview, QString::number(i+1,10),"", "","","");
+        card_slots[i] = new QListViewItem( listview, QString::number(i+1,10),"", "","","");
 	}
 	pmEmptyIcon.resize(16,16);
 

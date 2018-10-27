@@ -1,16 +1,27 @@
-#include <qobject.h>
-#include <qmainwindow.h>
-#include "CardSlots.h"
-#include "PSX_memory_card.h"
-
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "CardSlots.h"
+#include "PSX_memory_card.h"
+
+#include <QMainWindow>
+
+namespace Ui {
+class MainWindow;
+}
+
 class MainWindow : public QMainWindow
 {
-	Q_OBJECT
+    Q_OBJECT
+
 public:
-    MainWindow( QWidget *parent=0, const char *name=0 );
+    explicit MainWindow(QWidget *parent = nullptr);
+    ~MainWindow();
+
+private:
+    Ui::MainWindow *ui;
+
+
 
 private slots:
 	void load_mc_image();

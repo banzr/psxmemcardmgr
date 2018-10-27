@@ -1,12 +1,12 @@
+#ifndef PSX_MEM_CARD_H
+#define PSX_MEM_CARD_H
+
 #include <qstring.h>
 #include <qpixmap.h>
 #include <qimage.h>
 #include <qtextcodec.h>
 #include <iconv.h>
 #include "card_link.h"
-
-#ifndef PSX_MEM_CARD_H
-#define PSX_MEM_CARD_H
 
 class PSX_memory_card
 {
